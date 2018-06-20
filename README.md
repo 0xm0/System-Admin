@@ -15,8 +15,8 @@ System Administrator Linux Scripts - Desgined to make your life easier
  * Load Monitor (Alerts Server administrator when server load is over 5.0)
 
 ## Requirements
-Centos 6 - 7x
-Cloud Linux 6 - 7x
-cPanel / WHM v72x
+* Centos 6 - 7x 
+* Cloud Linux 6 - 7x
+* cPanel / WHM v72x
 
 ## Installation, Upgrades and Documentation
