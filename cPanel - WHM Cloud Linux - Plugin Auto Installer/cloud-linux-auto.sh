@@ -4,6 +4,21 @@
 # Created by David Brockway
 # https://github.com/DavidBrockway
 
+# Check server for update, update server if required
+yum -y update
+
+# Cloud Linux 7.x Installtion
+wget https://repo.cloudlinux.com/cloudlinux/sources/cln/cldeploy
+sh cldeploy -i
+
+# Check server for update, update server if required
+yum -y update
+
+
+# LV Installation 
+yum install lve-stats -y
+yum install lvemanager -y
+
 # Installing CageFS
 yum install cagefs -y
 /usr/sbin/cagefsctl --init
@@ -15,18 +30,32 @@ yum install cagefs -y
 yum install lvemanager alt-python-virtualenv ea-apache24-mod-alt-passenger -y
 yum groupinstall alt-python -y
 yum groupinstall alt-ruby -y
+yum install alt-python27-devel -y
 
 # Installing Node.js Selector
 
-yum groupinstall alt-nodejs6 alt-nodejs8 alt-nodejs9 -y
+yum groupinstall alt-nodejs6 alt-nodejs8 alt-nodejs9 -y 
 yum install lvemanager lve-utils ea-apache24-mod-alt-passenger -y
 
-# Installing PHP Selector
+# CloudLinux 7 restart! 
+systemctl restart cpanel.service
 
+# CloudLinux 7 restart! 
+
+# Installing pache mod_lsapi PRO
+yum install liblsapi liblsapi-devel -y
+yum install ea-apache24-mod_lsapi -y
+/usr/bin/switch_mod_lsapi --setup
+service httpd restart
+
+# Installing PHP Slector 
 yum groupinstall alt-php -y
 
 # CageFS Force Update
 cagefsctl --force-update
+yum update cagefs lvemanager
 
+# Reboot Server 
+reboot
 
 fi
