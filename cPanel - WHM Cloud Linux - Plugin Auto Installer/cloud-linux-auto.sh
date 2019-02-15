@@ -7,6 +7,21 @@
 # Check server for update, update server if required
 yum -y update
 
+# Installs Perl
+yum -y install perl
+ 
+# dir change to Home
+cd /home
+
+# cPanel Installer Curl Download
+curl -o latest -L https://securedownloads.cpanel.net/latest
+
+# cPanel run insatller 
+sh latest
+
+# Check server for update, update server if required
+yum -y update
+
 # Cloud Linux 7.x Installtion
 wget https://repo.cloudlinux.com/cloudlinux/sources/cln/cldeploy
 sh cldeploy -i
