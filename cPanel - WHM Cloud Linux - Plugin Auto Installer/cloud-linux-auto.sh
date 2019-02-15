@@ -1,6 +1,6 @@
 #!/bin/bash
 # System Administrator script
-# cPanel / WHM Cloud Linux Plugin Auto Installer
+# cPanel / WHM Cloud Linux Plugin Auto Installer + CSF Firewall
 # Created by David Brockway
 # https://github.com/DavidBrockway
 
@@ -69,6 +69,26 @@ yum groupinstall alt-php -y
 # CageFS Force Update
 cagefsctl --force-update
 yum update cagefs lvemanager
+
+# Install CSF firewall 
+cd /usr/src/
+wget https://download.configserver.com/csf.tgz
+tar -xzf csf.tgz
+cd csf
+sh install.sh
+
+# Replcaes CSF config 
+
+cd /etc/csf/
+rm -rf csf.conf
+wget https://raw.githubusercontent.com/DavidBrockway/System-Admin/master/cPanel%20-%20WHM/ConfigServer%20Security%20%26%20Firewall%20(csf)/csf.conf
+
+# Start CSF & LFD
+systemctl start csf
+systemctl start lfd
+
+systemctl enable csf
+systemctl enable lfd
 
 # Reboot Server 
 reboot
