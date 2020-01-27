@@ -24,3 +24,5 @@ System Administrator Linux Scripts - Desgined to make your life easier
 * cPanel / WHM v72x
 
 ## Installation, Upgrades and Documentation
+
+Pending a code update in 2020, to resolve syntax errors. 
