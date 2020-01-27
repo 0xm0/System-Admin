@@ -1,5 +1,8 @@
 #!/bin/bash
-# System Administrator script kernal update
+# System Administrator script kernal update for CentOS 7.X & 8.X
+
+# Clean all cached information,
+yum clean all
 
 # Check server for update, update server if required
 yum -y update
