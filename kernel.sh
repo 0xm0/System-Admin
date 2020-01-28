@@ -1,5 +1,5 @@
 #!/bin/bash
-# System Administrator script kernal update for CentOS 7.X & 8.X
+# System Administrator script kernel update for CentOS 7.X & 8.X
 
 # Clean all cached information,
 yum clean all
@@ -7,7 +7,7 @@ yum clean all
 # Check server for update, update server if required
 yum -y update
 
-# Displays current kernal 
+# Displays current kernel
 uname -sr
 
 sleep 5
@@ -32,7 +32,7 @@ sudo grub2-set-default 0
 
 sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-echo "System Rebooting to new kernal, rebuilding the grub config, Waiting 5 seconds";
+echo "System Rebooting to new kernel, rebuilding the grub config, Waiting 5 seconds";
 
 sleep 5
 
